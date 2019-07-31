@@ -2,39 +2,7 @@
 <main>
     <div class="container">
         <div class="row">
-            <div class="col-md-2 left-menu">
-                <p class="left-menu-cat">Categories</p>
-                <nav>
-                    <li id="all" class="act menu-head" >ALL</li>
-                    <li class="all-child menu-head fict ">Fiction & Literature</li>
-                    <li class="fict-child"><a href="">Children</a></li>
-                    <li class="fict-child"><a href="">Science Fiction</a></li>
-                    <li class="fict-child"><a href="">Fantasy</a></li>
-                    <li class="fict-child"><a href="">Mystery</a></li>
-                    <li class="fict-child"><a href="">Romance</a></li>
-                    <li class="fict-child"><a href="">Horror</a></li>
-                    <li class="fict-child"><a href="">Poetry</a></li>
-                    <li class="fict-child"><a href="">Literature</a></li>
-                    <li class="fict-child"><a href="">Crime</a></li>
-                    <li class="all-child menu-head non ">Non - Fiction</li>
-                    <li class="non-child"><a href="">Comic</a></li>
-                    <li class="non-child"><a href="">Cook</a></li>
-                    <li class="non-child"><a href="">Psyhology</a></li>
-                    <li class="non-child"><a href="">Medical</a></li>
-                    <li class="non-child"><a href="">Art</a></li>
-                    <li class="non-child"><a href="">Photography</a></li>
-                    <li class="non-child"><a href="">Law</a></li>
-                    <li class="non-child"><a href="">History</a></li>
-                    <li class="non-child"><a href="">Business</a></li>
-                    <li class="non-child"><a href="">Computer</a></li>
-                    <li class="all-child menu-head other ">Other</li>
-                    <li class="other-child"><a href="">Baby</a></li>
-                    <li class="other-child"><a href="">Sex</a></li>
-                    <li class="other-child"><a href="">Travel</a></li>
-                    <li class="other-child"><a href="">Science</a></li>
-                    <li class="other-child"><a href="">Sports</a></li>
-                </nav>
-            </div>
+            <?php require_once 'tpl/sidebar.php';?>
             <div class="col-md-10 tabs">
                 <div class=" d-flex flex-wrap align-content-around tabs-cell best " id="best">
                    <div  class="col-md-12 text-left category-name"> <p class="cat-name">Category Page</p><br></div>

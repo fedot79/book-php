@@ -29,7 +29,7 @@
     <div class="hdr-center">
         <div class="container">
             <div class="row">
-                <div class="col-sm-12 col-md-2 col-xl-2 text-left"><a href="index.html"><img src="img/logo.png" alt=""></a></div>
+                <div class="col-sm-12 col-md-2 col-xl-2 text-left"><a href="index.php"><img src="img/logo.png" alt=""></a></div>
                 <div class="col-sm-6 col-md-6  col-xl-6  text-center hdr-search">
                     <div class="input-group ">
                         <input type="text" class="form-control search" id="ft-search" placeholder="" aria-label="" aria-describedby="basic-addon1">

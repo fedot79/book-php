@@ -1,4 +1,6 @@
-<?php require_once 'tpl/header.php';?>
+<?php require_once 'tpl/header.php';
+
+?>
 
 <main>
     <div class="container">
@@ -20,39 +22,7 @@
                 <button type="button" class="btn btn-success deal-btn">Buy now</button>
 
             </div>
-            <div class="col-md-2 left-menu">
-                <p class="left-menu-cat">Categories</p>
-                <nav >
-                    <li id="all" class="act menu-head" >ALL</li>
-                    <li class="all-child menu-head fict ">Fiction & Literature</li>
-                    <li class="fict-child"><a class="cat" href="category_page.php">Children</a></li>
-                    <li class="fict-child "><a class="cat"  href="category_page.php">Science Fiction</a></li>
-                    <li class="fict-child"><a href="category_page.php">Fantasy</a></li>
-                    <li class="fict-child"><a  href="category_page.php">Mystery</a></li>
-                    <li class="fict-child"><a href="category_page.php">Romance</a></li>
-                    <li class="fict-child"><a href="category_page.php">Horror</a></li>
-                    <li class="fict-child"><a href="category_page.php">Poetry</a></li>
-                    <li class="fict-child"><a href="category_page.php">Literature</a></li>
-                    <li class="fict-child"><a href="category_page.php">Crime</a></li>
-                    <li class="all-child menu-head non ">Non - Fiction</li>
-                    <li class="non-child"><a href="category_page.php">Comic</a></li>
-                    <li class="non-child"><a href="category_page.php">Cook</a></li>
-                    <li class="non-child"><a href="category_page.php">Psyhology</a></li>
-                    <li class="non-child"><a href="category_page.php">Medical</a></li>
-                    <li class="non-child"><a href="category_page.php">Art</a></li>
-                    <li class="non-child"><a href="category_page.php">Photography</a></li>
-                    <li class="non-child"><a href="category_page.php">Law</a></li>
-                    <li class="non-child"><a href="category_page.php">History</a></li>
-                    <li class="non-child"><a href="category_page.php">Business</a></li>
-                    <li class="non-child"><a href="category_page.php">Computer</a></li>
-                    <li class="all-child menu-head other ">Other</li>
-                    <li class="other-child"><a href="category_page.php">Baby</a></li>
-                    <li class="other-child"><a href="category_page.php">Sex</a></li>
-                    <li class="other-child"><a href="category_page.php">Travel</a></li>
-                    <li class="other-child"><a href="category_page.php">Science</a></li>
-                    <li class="other-child"><a href="category_page.php">Sports</a></li>
-                </nav>
-            </div>
+            <?php require_once 'tpl/sidebar.php';?>
             <div class="col-md-10 tabs">
                 <ul class="nav nav-tabs ">
                     <li class="nav-item ">
