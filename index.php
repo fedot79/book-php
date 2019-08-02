@@ -1,7 +1,9 @@
-<?php require_once 'tpl/header.php';
-
+<?php
+require_once 'tpl/header.php';
+require_once 'models/functions.php';
+$best = bestBooks($link);
+$new = newBooks($link);
 ?>
-
 <main>
     <div class="container">
         <div class="row">
@@ -39,240 +41,72 @@
                     </li>
                 </ul>
                 <div class=" d-flex flex-wrap align-content-around tabs-cell best " id="best">
-                    <div class="tabs-unit text-center ">
-                        <a  href="product-page.html">
+                    <?php
+                    foreach ($best as $item){
+                        if ($item["offer"] > 0){
+                            echo ('
+                        <div class="tabs-unit text-center ">
+                        <a  href="product-page.php"> 
                             <img class="sale" src="img/books/sale.png" alt="">
-                            <img src="img/books/b1.png" alt="">
-                            <p class=" tabs-unit-name">The Hare With Amber Eyes</p>
-                            <p class="tabs-unit-price">$50</p>
+                            <img src="img/books/'.$item["image"].'" alt="">
+                            <p class=" tabs-unit-name">'.$item["name"].'</p>
+                            <p class="tabs-unit-price">$'.$item["price"].'</p>
                         </a>
                     </div>
-                    <div class="tabs-unit text-center">
-                        <a  href="product-page.html">
-                            <img src="img/books/b2.png" alt="">
-                            <p class=" tabs-unit-name"><br>The war of  Art</p>
-                            <p class=" tabs-unit-price">$60</p>
+                        ');
+                        }else {
+                            echo ('
+                        <div class="tabs-unit text-center ">
+                        <a  href="product-page.php">                                      
+                            <img src="img/books/'.$item["image"].'" alt="">
+                            <p class=" tabs-unit-name">'.$item["name"].'</p>
+                            <p class="tabs-unit-price">$'.$item["price"].'</p>
                         </a>
                     </div>
-                    <div class="tabs-unit text-center">
-                        <a  href="product-page.html">
-                            <img class="sale" src="img/books/sale.png" alt="">
-                            <img src="img/books/b3.png" alt="">
-                            <p class=" tabs-unit-name">The Hare With Amber Eyes</p>
-                            <p class="tabs-unit-price">$25</p>
-                        </a>
-                    </div>
-                    <div class="tabs-unit text-center">
-                        <a  href="product-page.html">
-                            <img src="img/books/b4.png" alt="">
-                            <p class=" tabs-unit-name">The Immortals of Meluha</p>
-                            <p class="tabs-unit-price">$80</p>
-                        </a>
-                    </div>
-                    <div class="tabs-unit text-center">
-                        <a  href="product-page.html">
-                            <img src="img/books/b5.png" alt="">
-                            <p class=" tabs-unit-name">Life Is What You  Make It</p>
-                            <p class="tabs-unit-price">$200</p>
-                        </a>
-                    </div>
-                    <div class="tabs-unit text-center">
-                        <a  href="product-page.html">
-                            <img src="img/books/b6.png" alt="">
-                            <p class=" tabs-unit-name">The Hare With Amber Eyes</p>
-                            <p class="tabs-unit-price">$200</p>
-                        </a>
-                    </div>
-                    <div class="tabs-unit text-center">
-                        <a  href="product-page.html">
-                            <img src="img/books/b7.png" alt="">
-                            <p class=" tabs-unit-name"><br>The war of  Art</p>
-                            <p class="tabs-unit-price">$150</p>
-                        </a>
-                    </div>
-                    <div class="tabs-unit text-center">
-                        <a  href="product-page.html">
-                            <img class="sale" src="img/books/sale.png" alt="">
-                            <img src="img/books/b8.png" alt="">
-                            <p class=" tabs-unit-name">The Hare With Amber Eyes</p>
-                            <p class="tabs-unit-price">$100</p>
-                        </a>
-                    </div>
-                    <div class="tabs-unit text-center">
-                        <a  href="product-page.html">
-                            <img src="img/books/b9.png" alt="">
-                            <p class=" tabs-unit-name">The Immortals of Meluha</p>
-                            <p class="tabs-unit-price">$152</p>
-                        </a>
-                    </div>
-                    <div class="tabs-unit text-center">
-                        <a  href="product-page.html">
-                            <img src="img/books/b10.png" alt="">
-                            <p class=" tabs-unit-name">Life Is What You  Make It</p>
-                            <p class="tabs-unit-price">$200</p>
-                        </a>
-                    </div>
-                    <div class="tabs-unit text-center">
-                        <a  href="product-page.html">
-                            <img src="img/books/b11.png" alt="">
-                            <p class=" tabs-unit-name">The Hare With Amber Eyes</p>
-                            <p class="tabs-unit-price">$220</p>
-                        </a>
-                    </div>
-                    <div class="tabs-unit text-center">
-                        <a  href="product-page.html">
-                            <img src="img/books/b12.png" alt="">
-                            <p class=" tabs-unit-name"><br>The war of  Art</p></p>
-                            <p class="tabs-unit-price">$10</p>
-                        </a>
-                    </div>
-                    <div class="tabs-unit text-center">
-                        <a  href="product-page.html">
-                            <img src="img/books/b13.png" alt="">
-                            <p class=" tabs-unit-name">The Hare With Amber Eyes</p>
-                            <p class="tabs-unit-price">$22</p>
-                        </a>
-                    </div>
-                    <div class="tabs-unit text-center">
-                        <a  href="product-page.html">
-                            <img class="sale" src="img/books/sale.png" alt="">
-                            <img src="img/books/b14.png" alt="">
-                            <p class=" tabs-unit-name">The Immortals of Meluha</p>
-                            <p class="tabs-unit-price">$300</p>
-                        </a>
-                    </div>
-                    <div class="tabs-unit text-center">
-                        <a  href="product-page.html">
-                            <img src="img/books/b15.png" alt="">
-                            <p class=" tabs-unit-name">Life Is What You  Make It</p>
-                            <p class="tabs-unit-price">$205</p>
-                        </a>
-                    </div>
+                        ');
+                        }
+                    }
+                    ?>
                     <div class="col-md-12 d-flex justify-content-end pagination-block">
                         <nav aria-label="..." >
                             <ul class="pagination pagination-sm ">
-
                                 <li class="page-item"><a class="page-link" href="#!">1</a></li>
                                 <li class="page-item"><a class="page-link" href="#!">2</a></li>
                                 <li class="page-item"><a class="page-link active-page" href="#!">3</a></li>
                                 <li class="page-item"><a class="page-link" href="#!">4</a></li>
                                 <li class="page-item"><a class="page-link" href="#!">5</a></li>
                                 <li class="page-item"><a class="page-link" href="#!">6</a></li>
-
                             </ul>
                         </nav>
                     </div>
                 </div>
                 <div class=" d-flex flex-wrap align-content-around tabs-cell new">
-                    <div class="tabs-unit text-center ">
-                        <a  href="product-page.html">
+                    <?php
+                    foreach ($new as $item){
+                        if ($item["offer"] > 0){
+                            echo ('
+                        <div class="tabs-unit text-center ">
+                        <a  href="product-page.php"> 
                             <img class="sale" src="img/books/sale.png" alt="">
-                            <img src="img/books/b1.png" alt="">
-                            <p class=" tabs-unit-name">New Arivals </p>
-                            <p class="tabs-unit-price">$50</p>
+                            <img src="img/books/'.$item["image"].'" alt="">
+                            <p class=" tabs-unit-name">'.$item["name"].'</p>
+                            <p class="tabs-unit-price">$'.$item["price"].'</p>
                         </a>
                     </div>
-                    <div class="tabs-unit text-center">
-                        <a  href="product-page.html">
-                            <img src="img/books/b2.png" alt="">
-                            <p class=" tabs-unit-name"><br>New Arivals</p>
-                            <p class=" tabs-unit-price">$60</p>
+                        ');
+                        }else {
+                            echo ('
+                        <div class="tabs-unit text-center ">
+                        <a  href="product-page.php">                                      
+                            <img src="img/books/'.$item["image"].'" alt="">
+                            <p class=" tabs-unit-name">'.$item["name"].'</p>
+                            <p class="tabs-unit-price">$'.$item["price"].'</p>
                         </a>
                     </div>
-                    <div class="tabs-unit text-center">
-                        <a  href="product-page.html">
-                            <img class="sale" src="img/books/sale.png" alt="">
-                            <img src="img/books/b3.png" alt="">
-                            <p class=" tabs-unit-name">New Arivals</p>
-                            <p class="tabs-unit-price">$25</p>
-                        </a>
-                    </div>
-                    <div class="tabs-unit text-center">
-                        <a  href="product-page.html">
-                            <img src="img/books/b4.png" alt="">
-                            <p class=" tabs-unit-name">New Arivals</p>
-                            <p class="tabs-unit-price">$80</p>
-                        </a>
-                    </div>
-                    <div class="tabs-unit text-center">
-                        <a  href="product-page.html">
-                            <img src="img/books/b5.png" alt="">
-                            <p class=" tabs-unit-name">New Arivals</p>
-                            <p class="tabs-unit-price">$200</p>
-                        </a>
-                    </div>
-                    <div class="tabs-unit text-center">
-                        <a  href="product-page.html">
-                            <img src="img/books/b6.png" alt="">
-                            <p class=" tabs-unit-name">New Arivals</p>
-                            <p class="tabs-unit-price">$200</p>
-                        </a>
-                    </div>
-                    <div class="tabs-unit text-center">
-                        <a  href="product-page.html">
-                            <img src="img/books/b7.png" alt="">
-                            <p class=" tabs-unit-name"><br>New Arivals</p>
-                            <p class="tabs-unit-price">$150</p>
-                        </a>
-                    </div>
-                    <div class="tabs-unit text-center">
-                        <a  href="product-page.html">
-                            <img class="sale" src="img/books/sale.png" alt="">
-                            <img src="img/books/b8.png" alt="">
-                            <p class=" tabs-unit-name">New Arivals</p>
-                            <p class="tabs-unit-price">$100</p>
-                        </a>
-                    </div>
-                    <div class="tabs-unit text-center">
-                        <a  href="product-page.html">
-                            <img src="img/books/b9.png" alt="">
-                            <p class=" tabs-unit-name">New Arivals</p>
-                            <p class="tabs-unit-price">$152</p>
-                        </a>
-                    </div>
-                    <div class="tabs-unit text-center">
-                        <a  href="product-page.html">
-                            <img src="img/books/b10.png" alt="">
-                            <p class=" tabs-unit-name">New Arivals</p>
-                            <p class="tabs-unit-price">$200</p>
-                        </a>
-                    </div>
-                    <div class="tabs-unit text-center">
-                        <a  href="product-page.html">
-                            <img src="img/books/b11.png" alt="">
-                            <p class=" tabs-unit-name">New Arivals</p>
-                            <p class="tabs-unit-price">$220</p>
-                        </a>
-                    </div>
-                    <div class="tabs-unit text-center">
-                        <a  href="product-page.html">
-                            <img src="img/books/b12.png" alt="">
-                            <p class=" tabs-unit-name"><br>New Arivals</p></p>
-                            <p class="tabs-unit-price">$10</p>
-                        </a>
-                    </div>
-                    <div class="tabs-unit text-center">
-                        <a  href="product-page.html">
-                            <img src="img/books/b13.png" alt="">
-                            <p class=" tabs-unit-name">New Arivals</p>
-                            <p class="tabs-unit-price">$22</p>
-                        </a>
-                    </div>
-                    <div class="tabs-unit text-center">
-                        <a  href="product-page.html">
-                            <img class="sale" src="img/books/sale.png" alt="">
-                            <img src="img/books/b14.png" alt="">
-                            <p class=" tabs-unit-name">New Arivals</p>
-                            <p class="tabs-unit-price">$300</p>
-                        </a>
-                    </div>
-                    <div class="tabs-unit text-center">
-                        <a  href="product-page.html">
-                            <img src="img/books/b15.png" alt="">
-                            <p class=" tabs-unit-name">New Arivals</p>
-                            <p class="tabs-unit-price">$205</p>
-                        </a>
-                    </div>
+                        ');
+                        }
+                    }
+                    ?>
                     <div class="col-md-12 d-flex justify-content-end pagination-block">
                         <nav aria-label="..." >
                             <ul class="pagination pagination-sm ">
@@ -414,115 +248,22 @@
                     </div>
                 </div>
                 <div class=" d-flex flex-wrap align-content-around tabs-cell offer">
-                    <div class="tabs-unit text-center ">
-                        <a  href="product-page.html">
+                    <?php
+                    foreach ($new as $item){
+                        if ($item["offer"] > 0){
+                            echo ('
+                        <div class="tabs-unit text-center ">
+                        <a  href="product-page.php"> 
                             <img class="sale" src="img/books/sale.png" alt="">
-                            <img src="img/books/b1.png" alt="">
-                            <p class=" tabs-unit-name">Special Offers </p>
-                            <p class="tabs-unit-price">$50</p>
+                            <img src="img/books/'.$item["image"].'" alt="">
+                            <p class=" tabs-unit-name">'.$item["name"].'</p>
+                            <p class="tabs-unit-price">$'.$item["price"].'</p>
                         </a>
                     </div>
-                    <div class="tabs-unit text-center">
-                        <a  href="product-page.html">
-                            <img src="img/books/b2.png" alt="">
-                            <p class=" tabs-unit-name"><br>Special Offers</p>
-                            <p class=" tabs-unit-price">$60</p>
-                        </a>
-                    </div>
-                    <div class="tabs-unit text-center">
-                        <a  href="product-page.html">
-                            <img class="sale" src="img/books/sale.png" alt="">
-                            <img src="img/books/b3.png" alt="">
-                            <p class=" tabs-unit-name">Special Offers</p>
-                            <p class="tabs-unit-price">$25</p>
-                        </a>
-                    </div>
-                    <div class="tabs-unit text-center">
-                        <a  href="product-page.html">
-                            <img src="img/books/b4.png" alt="">
-                            <p class=" tabs-unit-name">Special Offers</p>
-                            <p class="tabs-unit-price">$80</p>
-                        </a>
-                    </div>
-                    <div class="tabs-unit text-center">
-                        <a  href="product-page.html">
-                            <img src="img/books/b5.png" alt="">
-                            <p class=" tabs-unit-name">Special Offers</p>
-                            <p class="tabs-unit-price">$200</p>
-                        </a>
-                    </div>
-                    <div class="tabs-unit text-center">
-                        <a  href="product-page.html">
-                            <img src="img/books/b6.png" alt="">
-                            <p class=" tabs-unit-name">Special Offers</p>
-                            <p class="tabs-unit-price">$200</p>
-                        </a>
-                    </div>
-                    <div class="tabs-unit text-center">
-                        <a  href="product-page.html">
-                            <img src="img/books/b7.png" alt="">
-                            <p class=" tabs-unit-name"><br>Special Offers</p>
-                            <p class="tabs-unit-price">$150</p>
-                        </a>
-                    </div>
-                    <div class="tabs-unit text-center">
-                        <a  href="product-page.html">
-                            <img class="sale" src="img/books/sale.png" alt="">
-                            <img src="img/books/b8.png" alt="">
-                            <p class=" tabs-unit-name">Special Offers</p>
-                            <p class="tabs-unit-price">$100</p>
-                        </a>
-                    </div>
-                    <div class="tabs-unit text-center">
-                        <a  href="product-page.html">
-                            <img src="img/books/b9.png" alt="">
-                            <p class=" tabs-unit-name">Special Offers</p>
-                            <p class="tabs-unit-price">$152</p>
-                        </a>
-                    </div>
-                    <div class="tabs-unit text-center">
-                        <a  href="product-page.html">
-                            <img src="img/books/b10.png" alt="">
-                            <p class=" tabs-unit-name">Special Offers</p>
-                            <p class="tabs-unit-price">$200</p>
-                        </a>
-                    </div>
-                    <div class="tabs-unit text-center">
-                        <a  href="product-page.html">
-                            <img src="img/books/b11.png" alt="">
-                            <p class=" tabs-unit-name">Special Offers</p>
-                            <p class="tabs-unit-price">$220</p>
-                        </a>
-                    </div>
-                    <div class="tabs-unit text-center">
-                        <a  href="product-page.html">
-                            <img src="img/books/b12.png" alt="">
-                            <p class=" tabs-unit-name"><br>Special Offers</p></p>
-                            <p class="tabs-unit-price">$10</p>
-                        </a>
-                    </div>
-                    <div class="tabs-unit text-center">
-                        <a  href="product-page.html">
-                            <img src="img/books/b13.png" alt="">
-                            <p class=" tabs-unit-name">Special Offers</p>
-                            <p class="tabs-unit-price">$22</p>
-                        </a>
-                    </div>
-                    <div class="tabs-unit text-center">
-                        <a  href="product-page.html">
-                            <img class="sale" src="img/books/sale.png" alt="">
-                            <img src="img/books/b14.png" alt="">
-                            <p class=" tabs-unit-name">Special Offers</p>
-                            <p class="tabs-unit-price">$300</p>
-                        </a>
-                    </div>
-                    <div class="tabs-unit text-center">
-                        <a  href="product-page.html">
-                            <img src="img/books/b15.png" alt="">
-                            <p class=" tabs-unit-name">Special Offers</p>
-                            <p class="tabs-unit-price">$205</p>
-                        </a>
-                    </div>
+                        ');
+                        }
+                    }
+                    ?>
                     <div class="col-md-12 d-flex justify-content-end pagination-block">
                         <nav aria-label="..." >
                             <ul class="pagination pagination-sm ">
