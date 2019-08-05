@@ -1,120 +1,45 @@
-<?php require_once 'tpl/header.php';?>
+<?php require_once 'tpl/header.php';
+require_once 'models/functions.php';
+$bookCat = booksCategories($link,$_GET["link"]);
+
+?>
 <main>
     <div class="container">
         <div class="row">
             <?php require_once 'tpl/sidebar.php';?>
             <div class="col-md-10 tabs">
                 <div class=" d-flex flex-wrap align-content-around tabs-cell best " id="best">
-                   <div  class="col-md-12 text-left category-name"> <p class="cat-name">Category Page</p><br></div>
-                    <div class="tabs-unit text-center ">
+                   <div  class="col-md-12 text-left category-name"> <p class="cat-name"><?= $_GET["linkName"]?></p><br></div>
+                    <?php
+                        foreach ($bookCat as $item){
+                            if ($item["offer"] > 0) {
+                                echo('
+                            
+                            <div class="tabs-unit text-center ">
+                        <a  href="product-page.php?link=' . $item["id"] . '">
+                            <img class="sale" src="img/books/sale.png" alt="">
+                            <img src="img/books/'.$item["image"].'" alt="">
+                            <p class=" tabs-unit-name">'.$item["name"].'</p>
+                            <p class="tabs-unit-price">'.$item["price"].'</p>
+                        </a>
+                    </div>
+                            ');
+                            }else {
+                                echo('
+                            
+                            <div class="tabs-unit text-center ">
                         <a  href="">
-                            <img class="sale" src="img/books/sale.png" alt="">
-                            <img src="img/books/b1.png" alt="">
-                            <p class=" tabs-unit-name">The Hare With Amber Eyes</p>
-                            <p class="tabs-unit-price">$50</p>
+                           
+                            <img src="img/books/'.$item["image"].'" alt="">
+                            <p class=" tabs-unit-name">'.$item["name"].'</p>
+                            <p class="tabs-unit-price">'.$item["price"].'</p>
                         </a>
                     </div>
-                    <div class="tabs-unit text-center">
-                        <a  href="product-page.html">
-                            <img src="img/books/b2.png" alt="">
-                            <p class=" tabs-unit-name"><br>The war of  Art</p>
-                            <p class=" tabs-unit-price">$60</p>
-                        </a>
-                    </div>
-                    <div class="tabs-unit text-center">
-                        <a  href="product-page.html">
-                            <img class="sale" src="img/books/sale.png" alt="">
-                            <img src="img/books/b3.png" alt="">
-                            <p class=" tabs-unit-name">The Hare With Amber Eyes</p>
-                            <p class="tabs-unit-price">$25</p>
-                        </a>
-                    </div>
-                    <div class="tabs-unit text-center">
-                        <a  href="product-page.html">
-                            <img src="img/books/b4.png" alt="">
-                            <p class=" tabs-unit-name">The Immortals of Meluha</p>
-                            <p class="tabs-unit-price">$80</p>
-                        </a>
-                    </div>
-                    <div class="tabs-unit text-center">
-                        <a  href="product-page.html">
-                            <img src="img/books/b5.png" alt="">
-                            <p class=" tabs-unit-name">Life Is What You  Make It</p>
-                            <p class="tabs-unit-price">$200</p>
-                        </a>
-                    </div>
-                    <div class="tabs-unit text-center">
-                        <a  href="product-page.html">
-                            <img src="img/books/b6.png" alt="">
-                            <p class=" tabs-unit-name">The Hare With Amber Eyes</p>
-                            <p class="tabs-unit-price">$200</p>
-                        </a>
-                    </div>
-                    <div class="tabs-unit text-center">
-                        <a  href="product-page.html">
-                            <img src="img/books/b7.png" alt="">
-                            <p class=" tabs-unit-name"><br>The war of  Art</p>
-                            <p class="tabs-unit-price">$150</p>
-                        </a>
-                    </div>
-                    <div class="tabs-unit text-center">
-                        <a  href="product-page.html">
-                            <img class="sale" src="img/books/sale.png" alt="">
-                            <img src="img/books/b8.png" alt="">
-                            <p class=" tabs-unit-name">The Hare With Amber Eyes</p>
-                            <p class="tabs-unit-price">$100</p>
-                        </a>
-                    </div>
-                    <div class="tabs-unit text-center">
-                        <a  href="product-page.html">
-                            <img src="img/books/b9.png" alt="">
-                            <p class=" tabs-unit-name">The Immortals of Meluha</p>
-                            <p class="tabs-unit-price">$152</p>
-                        </a>
-                    </div>
-                    <div class="tabs-unit text-center">
-                        <a  href="product-page.html">
-                            <img src="img/books/b10.png" alt="">
-                            <p class=" tabs-unit-name">Life Is What You  Make It</p>
-                            <p class="tabs-unit-price">$200</p>
-                        </a>
-                    </div>
-                    <div class="tabs-unit text-center">
-                        <a  href="product-page.html">
-                            <img src="img/books/b11.png" alt="">
-                            <p class=" tabs-unit-name">The Hare With Amber Eyes</p>
-                            <p class="tabs-unit-price">$220</p>
-                        </a>
-                    </div>
-                    <div class="tabs-unit text-center">
-                        <a  href="product-page.html">
-                            <img src="img/books/b12.png" alt="">
-                            <p class=" tabs-unit-name"><br>The war of  Art</p></p>
-                            <p class="tabs-unit-price">$10</p>
-                        </a>
-                    </div>
-                    <div class="tabs-unit text-center">
-                        <a  href="product-page.html">
-                            <img src="img/books/b13.png" alt="">
-                            <p class=" tabs-unit-name">The Hare With Amber Eyes</p>
-                            <p class="tabs-unit-price">$22</p>
-                        </a>
-                    </div>
-                    <div class="tabs-unit text-center">
-                        <a  href="product-page.html">
-                            <img class="sale" src="img/books/sale.png" alt="">
-                            <img src="img/books/b14.png" alt="">
-                            <p class=" tabs-unit-name">The Immortals of Meluha</p>
-                            <p class="tabs-unit-price">$300</p>
-                        </a>
-                    </div>
-                    <div class="tabs-unit text-center">
-                        <a  href="product-page.html">
-                            <img src="img/books/b15.png" alt="">
-                            <p class=" tabs-unit-name">Life Is What You  Make It</p>
-                            <p class="tabs-unit-price">$205</p>
-                        </a>
-                    </div>
+                            ');
+                            }
+                        }
+                    ?>
+
                     <div class="col-md-12 d-flex justify-content-end pagination-block">
                         <nav aria-label="..." >
                             <ul class="pagination pagination-sm ">

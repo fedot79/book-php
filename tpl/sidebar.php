@@ -16,7 +16,7 @@ $categories = getCategories($link);
                 $child = $category["id"];
 
             }if($category["parent_id"] == $child){
-                echo ('<li class="fict-child"><a href="category_page.php">'.$category["name"].'</a></li>');
+                echo ('<li class="fict-child"><a href="category_page.php?link=' . $category["id"] . '&linkName='.$category["name"].'">'.$category["name"].'</a></li>');
             }
 
 
