@@ -18,3 +18,8 @@ function newBooks($link){
     return $new;
 }
 
+function booksCategories($link,$cat_id){
+    $query = "SELECT * FROM books WHERE category_id = '$cat_id'";
+    $bookCat = mysqli_query($link,$query);
+    return $bookCat;
+}
