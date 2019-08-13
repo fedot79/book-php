@@ -46,7 +46,7 @@ $new = newBooks($link);
                         if ($item["offer"] > 0){
                             echo ('
                         <div class="tabs-unit text-center ">
-                        <a  href="product-page.php"> 
+                        <a  href="product-page.php?link= '.$item["id"].'"> 
                             <img class="sale" src="img/books/sale.png" alt="">
                             <img src="img/books/'.$item["image"].'" alt="">
                             <p class=" tabs-unit-name">'.$item["name"].'</p>
@@ -57,7 +57,7 @@ $new = newBooks($link);
                         }else {
                             echo ('
                         <div class="tabs-unit text-center ">
-                        <a  href="product-page.php">                                      
+                        <a  href="product-page.php?link= '.$item["id"].'">                                      
                             <img src="img/books/'.$item["image"].'" alt="">
                             <p class=" tabs-unit-name">'.$item["name"].'</p>
                             <p class="tabs-unit-price">$'.$item["price"].'</p>

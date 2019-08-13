@@ -1,4 +1,8 @@
-<?php require_once 'tpl/header.php';?>
+<?php require_once 'tpl/header.php';
+require_once 'models/functions.php';
+$book = getBook($link,$_GET["link"]);
+
+?>
 <main>
     <div class="container">
         <div class="row">
@@ -12,17 +16,15 @@
                 </nav>
             </div>
             <div class="col-md-12 product-panel">
-                <div class=" panel-left"><img src="img/books/product-unit.png" alt=""></div>
+                <div class=" panel-left"><img src="img/books/<?php echo($book[0]["image"])?>" alt=""></div>
                 <div class=" panel-right">
-                    <h3>Star Wars Episode I</h3>
+                    <h3><?php echo($book[0]["name"])?></h3>
                     <span class="stock">In Stock</span>
-                    <p>The Star Wars Episode I: The Phantom Menace novelization was written by Terry Brooks and published on April 21, 1999 by Del Rey. It is based on the script of the movie of the same name.
-                        Narration for the abridged audio version was performed by Michael Cumpsty. The unabridged version was performed by Alexander Adams. On January 31, 2012, a new paperback edition
-                    </p>
+                    <p><?php echo($book[0]["short_description"])?></p>
                     <div class="add-cart">
                         <button class="product-btn">Add to cart</button>
-                        <span class="add-cart-head">Our price : <span class="add-cart-head-price">$150</span> </span><br>
-                        <span class="add-cart-save">Was $ 200 Save 20% </span><br>
+                        <span class="add-cart-head">Our price : <span class="add-cart-head-price">$<?php echo($book[0]["price"])?></span> </span><br>
+                        <span class="add-cart-save">Was $ <?php echo($book[0]["price"]+30)?> Save 20% </span><br>
                         <hr>
                         <img src="img/safe.png" alt=""><span class="safe">Safe, Secure Shopping</span><br>
                         <a href=""><img src="img/paypal.png" alt=""></a>
@@ -43,10 +45,7 @@
                         </li>
                     </ul>
                     <div class=" d-flex flex-wrap align-content-around tabs-cell info-text " >
-                        <p>The Star Wars Episode I: The Phantom Menace novelization was written by Terry Brooks and published on April 21, 1999 by Del Rey. It is based on the script of
-                            the movie of the same name. Narration for the abridged audio version was performed by Michael Cumpsty.
-                            The unabridged version was performed by Alexander Adams. On January 31, 2012, a new paperback edition was
-                        </p>
+                        <p><?php echo($book[0]["description"])?></p>
                     </div>
 
                 </div>
