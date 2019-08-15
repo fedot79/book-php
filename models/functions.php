@@ -29,3 +29,9 @@ function getBook($link,$book_id){
     $book = mysqli_fetch_all($res,MYSQLI_ASSOC);
     return $book;
 }
+function getComments($link,$book_id){
+    $query = "SELECT * FROM comments WHERE book_id = '$book_id' ORDER BY com_date DESC ";
+    $res = mysqli_query($link,$query);
+    $comment = mysqli_fetch_all($res,MYSQLI_ASSOC);
+    return $comment;
+}

@@ -1,6 +1,8 @@
 <?php require_once 'tpl/header.php';
 require_once 'models/functions.php';
 $book = getBook($link,$_GET["link"]);
+$comments = getComments($link,$_GET["link"]);
+
 
 ?>
 <main>
@@ -51,18 +53,23 @@ $book = getBook($link,$_GET["link"]);
                 </div>
                 <div class="comments">
                     <p class="comment-head">Product review</p>
-                    <div class="us-foto">
-                        <img src="img/us-foto.png" alt="">
-                        <p class="  us-name">Name 1</p>
-                    </div>
-                    <div class=" text-center us-text">
-                        <p>
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                            when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into
-                            electronic typesetting, remaining essentially
-                        </p>
-                    </div>
-                    <hr>
+                    <?php
+                        foreach ($comments as $comment){
+                            echo ('
+                                <div class="us-foto">
+                                    <img src="img/us-foto.png" alt="">
+                                    <p class="  us-name">'.$comment["us_name"].'</p>
+                                </div>
+                                <div class=" text-center us-text">
+                                    <p>
+                                       '.$comment["com_text"].'
+                                    </p>
+                                </div>
+                                <hr>
+                            ');
+                        }
+                    ?>
+
                     <div class="us-foto">
                         <img src="img/us-foto.png" alt="">
                         <p class="  us-name">Name 1</p>
@@ -76,23 +83,24 @@ $book = getBook($link,$_GET["link"]);
                     </div>
                     <hr>
                     <p class="comment-head">Write a comment</p>
-                    <form>
+                    <form action="models/comments.php" method="post">
                         <div class="form-group row">
-                            <label for="inputEmail3" class="col-sm-2 col-form-label">Your name</label>
+                            <label for="inputEmail3"  class="col-sm-2 col-form-label">Your name</label>
                             <div class="col-sm-10">
-                                <input type="email" class="form-control" id="inputEmail1" >
+                                <input type="text" name="name" class="form-control" required id="inputEmail1" >
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="inputEmail3" class="col-sm-2 col-form-label">Your email </label>
                             <div class="col-sm-10">
-                                <input type="email" class="form-control" id="inputEmail3" >
+                                <input type="email" name="email" required class="form-control" id="inputEmail3" >
+                                <input type="hidden" name="id" value="<?php echo $_GET["link"]?>" >
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="inputEmail3" class="col-sm-2 col-form-label">Message </label>
                             <div class="col-sm-10">
-                                <textarea name="" class="form-control" id="inputEmail2" cols="30" rows="5"></textarea>
+                                <textarea name="text" class="form-control" required id="inputEmail2" cols="30" rows="5"></textarea>
                             </div>
                         </div>
                         <div class="form-group row">
